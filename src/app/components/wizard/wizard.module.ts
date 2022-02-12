@@ -1,25 +1,44 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WizardComponent } from './wizard.component';
-import { StepComponent } from './step/step.component';
-import {CardModule} from 'primeng/card'
-import { CdkStepperModule } from '@angular/cdk/stepper';
+import { WizardComponent } from './wizard/wizard.component';
+import { WizardStepComponent } from './wizard-step/wizard-step.component';
+import { WizardStepContentDirective } from './wizard-step/directives/wizard-step-content.directive';
+import { WizardConfig } from './utils/interfaces';
+import { WIZARD_CONFIG_TOKEN } from './config/wizard-config.token';
 
 
 
 @NgModule({
   declarations: [
     WizardComponent,
-    StepComponent
+    WizardStepComponent,
+    WizardStepContentDirective
   ],
   imports: [
-    CommonModule,
-    CardModule,
-    CdkStepperModule
+    CommonModule
   ],
   exports: [
     WizardComponent,
-    StepComponent
+    WizardStepComponent
   ]
 })
-export class WizardModule { }
+export class WizardModule {
+/**
+   * forRoot
+   * @returns A module with its provider dependencies
+   */
+ static forRoot(wizardConfig: WizardConfig): ModuleWithProviders<WizardModule> {
+  return {
+    ngModule: WizardModule,
+    providers: [
+      {
+        provide: WIZARD_CONFIG_TOKEN,
+        useValue: wizardConfig
+      }
+    ]
+  };
+}
+
+
+
+}
