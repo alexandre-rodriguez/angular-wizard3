@@ -5,7 +5,7 @@ import { WizardStepComponent } from './wizard-step/wizard-step.component';
 import { WizardStepContentDirective } from './wizard-step/directives/wizard-step-content.directive';
 import { WizardConfig } from './utils/interfaces';
 import { WIZARD_CONFIG_TOKEN } from './config/wizard-config.token';
-
+import {CardModule} from 'primeng/card';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { WIZARD_CONFIG_TOKEN } from './config/wizard-config.token';
     WizardStepContentDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CardModule
   ],
   exports: [
     WizardComponent,

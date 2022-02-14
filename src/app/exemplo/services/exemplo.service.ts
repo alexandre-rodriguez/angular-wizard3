@@ -1,7 +1,7 @@
 import { Injectable, Type } from '@angular/core';
 import { isObservable, Observable } from 'rxjs';
 import { WizardConfig, StepValidationArgs } from '../../components/wizard/utils/interfaces';
-import { STEP_STATE, THEME } from '../../components/wizard/utils/enums';
+import { STEP_STATE} from '../../components/wizard/utils/enums';
 import { Step1Component } from '../steps/step1/step1.component';
 import { Step2Component } from '../steps/step2/step2.component';
 import { Step3Component } from '../steps/step3/step3.component';
@@ -18,47 +18,40 @@ export class ExemploService {
 
   config: WizardConfig = {
     selected: 0,
-    theme: THEME.arrows,
     toolbarSettings: {
-      toolbarExtraButtons: [
-        {
-          text: 'Finish',
-          class: 'btn btn-info',
-          event: () => alert('Finished!!!')
-        },
-      ]
+      toolbarExtraButtons: []
     }
   };
 
   stepDefinitions: StepDefinition[] = [
     {
-      title: 'Step 1',
-      description: 'Step 1 description',
+      title: 'Passo 1',
+      description: 'Descrição do passo 1',
       component: Step1Component,
       canEnter: this.validateStep.bind(this, 'entry'),
       canExit: this.validateStep.bind(this, 'exit'),
     },
     {
-      title: 'Step 2',
-      description: 'Step 2 description',
+      title: 'Passo 2 - Desabilitado',
+      description: 'Descrição do passo 2',
       state: STEP_STATE.disabled,
       component: Step2Component,
     },
     {
-      title: 'Step 3',
-      description: 'Step 3 description',
+      title: 'Passo 3',
+      description: 'Descrição do passo 3',
       component: Step3Component,
       canEnter: this.validateStep.bind(this, 'entry'),
       canExit: this.validateStep.bind(this, 'exit'),
     },
     {
-      title: 'Step 4',
-      description: 'Step 4 description',
+      title: 'Passo 4',
+      description: 'Descrição do passo 4',
       component: Step4Component,
     },
     {
-      title: 'Step 5',
-      description: 'Step 5 description',
+      title: 'Passo 5 - oculto',
+      description: 'Descrição do passo 5',
       state: STEP_STATE.hidden,
       component: Step5Component,
     },

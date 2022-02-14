@@ -1,22 +1,3 @@
-export enum TOOLBAR_POSITION {
-  none = 'none',
-  top = 'top',
-  bottom = 'bottom',
-  both = 'both'
-}
-
-export enum TOOLBAR_BUTTON_POSITION {
-  start = 'start',
-  end = 'end'
-}
-
-export enum THEME {
-  default = 'default',
-  arrows = 'arrows',
-  circles = 'circles',
-  dots = 'dots'
-}
-
 export enum STEP_STATE {
   normal = 'normal',
   disabled = 'disabled',
@@ -27,7 +8,8 @@ export enum STEP_STATE {
 export enum STEP_STATUS {
   untouched = 'untouched',
   done = 'done',
-  active = 'active'
+  active = 'active',
+  complete = 'complete'
 }
 
 export enum STEP_DIRECTIN {

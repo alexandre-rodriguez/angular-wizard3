@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import {ToastModule} from 'primeng/toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,11 +30,14 @@ import { Step6Component } from './exemplo/steps/step6/step6.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     WizardModule,
     CdkStepperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

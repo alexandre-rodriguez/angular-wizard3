@@ -1,6 +1,5 @@
 import { Inject, Optional, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { THEME } from '../../wizard/utils/enums';
 import { StepChangedArgs, WizardConfig } from '../utils/interfaces';
 import { WIZARD_CONFIG_TOKEN } from '../config/wizard-config.token';
 import { DEFAULT_CONFIG } from '../../wizard/utils/constants';
@@ -15,14 +14,14 @@ export class WizardDataService {
   showNextStep$: Observable<any>;
   showPreviousStep$: Observable<any>;
   showStep$: Observable<number>;
-  setTheme$: Observable<THEME>;
+  finishWizard$: Observable<any>;
   stepChangedArgs$: Observable<StepChangedArgs>;
 
   private _resetWizard: Subject<any>;
   private _showNextStep: Subject<any>;
   private _showPreviousStep: Subject<any>;
   private _showStep: Subject<number>;
-  private _setTheme: Subject<THEME>;
+  private _finishWizard: Subject<any>;
   private _stepChangedArgs: Subject<StepChangedArgs>;
   private _defaultConfig: WizardConfig;
 
@@ -37,15 +36,15 @@ export class WizardDataService {
     this._showNextStep = new Subject<any>();
     this._showPreviousStep = new Subject<any>();
     this._showStep = new Subject<any>();
-    this._setTheme = new Subject<THEME>();
+    this._finishWizard = new Subject<any>();
     this._stepChangedArgs = new Subject<StepChangedArgs>();
 
     // Observable streams
     this.resetWizard$ = this._resetWizard.asObservable();
     this.showNextStep$ = this._showNextStep.asObservable();
     this.showPreviousStep$ = this._showPreviousStep.asObservable();
+    this.finishWizard$ = this._finishWizard.asObservable();
     this.showStep$ = this._showStep.asObservable();
-    this.setTheme$ = this._setTheme.asObservable();
     this.stepChangedArgs$ = this._stepChangedArgs.asObservable();
   }
 
@@ -69,11 +68,11 @@ export class WizardDataService {
     this._showStep.next(index);
   }
 
-  setTheme(theme: THEME) {
-    this._setTheme.next(theme);
-  }
-
   stepChanged(args: StepChangedArgs) {
     this._stepChangedArgs.next(args);
+  }
+
+  finishWizard() {
+    this._finishWizard.next({});
   }
 }

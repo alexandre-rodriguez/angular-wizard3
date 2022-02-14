@@ -1,7 +1,8 @@
+<p-toast></p-toast>
 <br />
 <div class="container">
   <div class="form-group">
-    <pucx-wizard [config]="config" (stepChanged)="stepChanged($event)">
+    <pucx-wizard [config]="config" (stepChanged)="stepChanged($event)" (finished)="finishWizard()">
       <pucx-step
         *ngFor="let stepDefinition of stepDefinitions"
         [title]="stepDefinition.title"
@@ -14,61 +15,26 @@
       </pucx-step>
 
       <pucx-step
-        [title]="'Step 6'"
-        [description]="'Step 6 description'"
+        [title]="'Passo 6 - error'"
+        [description]="'Descrição do passo 6'"
         [state]="stepStates.error"
       >
         <pucx-step6></pucx-step6>
       </pucx-step>
 
-      <pucx-step [title]="'Step 7'" [description]="'Step 7 description'">
-        <span>Step 7 content</span>
+      <pucx-step [title]="'Passo 7'" [description]="'Descrição do passo 7'">
+        <span>Conteúdo do passo 7</span>
       </pucx-step>
     </pucx-wizard>
   </div>
 
-  <div class="form-group">
-    <div
-      class="
-        btn-toolbar
-        ng-wizard-toolbar ng-wizard-toolbar-top
-        justify-content-start
-      "
-    >
-      <div class="btn-group mr-2 ng-wizard-btn-group">
-        <button
-          type="button"
-          (click)="showPreviousStep($event)"
-          class="btn btn-secondary ng-wizard-btn-prev"
-        >
-          Previous
-        </button>
-        <button
-          type="button"
-          (click)="showNextStep($event)"
-          class="btn btn-secondary ng-wizard-btn-next"
-        >
-          Next
-        </button>
-        <button
-          type="button"
-          (click)="resetWizard($event)"
-          class="btn btn-danger"
-        >
-          Reset
-        </button>
-        <select [(ngModel)]="selectedTheme" (change)="themeSelected()">
-          <option *ngFor="let theme of themes" [ngValue]="theme">
-            {{ theme }}
-          </option>
-        </select>
-        <select [(ngModel)]="selectedStepIndex" (change)="stepIndexSelected()">
-          <option *ngFor="let stepIndex of stepIndexes" [ngValue]="stepIndex">
-            {{ "Step - " + (stepIndex + 1) }}
-          </option>
-        </select>
-      </div>
-    </div>
+  <div class="pt-2"><!--  -->
+    <h5>Exibir passo 5</h5>
+     <p-inputSwitch [(ngModel)]="checked" (onChange)="handleChange($event)"></p-inputSwitch>
   </div>
 
+  <div class="pt-2"><!--  -->
+    <h5>Botões extras</h5>
+     <p-inputSwitch [(ngModel)]="botaoExtra" (onChange)="handleBotaoExtra($event)"></p-inputSwitch>
+  </div>
 </div>

@@ -1,15 +1,14 @@
 import { Directive, Input, Type, ComponentRef, HostBinding } from '@angular/core';
 import { Observable } from 'rxjs';
-import { STEP_STATE, STEP_DIRECTIN, STEP_STATUS, STEP_POSITION, TOOLBAR_POSITION, TOOLBAR_BUTTON_POSITION, THEME } from './enums';
+import { STEP_STATE, STEP_DIRECTIN, STEP_STATUS, STEP_POSITION } from './enums';
 
 export interface Language {
   next?: string;
   previous?: string;
+  finish?: string;
 }
 
 export interface ToolbarSettings {
-  toolbarPosition?: TOOLBAR_POSITION; // none, top, bottom, both
-  toolbarButtonPosition?: TOOLBAR_BUTTON_POSITION; // start, end
   showNextButton?: boolean; // show/hide a Next button
   showPreviousButton?: boolean; // show/hide a Previous button
   toolbarExtraButtons?: ToolbarButton[]; // Extra buttons to show on toolbar, array of input/buttons elements
@@ -37,7 +36,6 @@ export interface WizardConfig {
   lang?: Language; // Language variables for button
   toolbarSettings?: ToolbarSettings;
   anchorSettings?: AnchorSettings;
-  theme?: THEME; // theme for the wizard, related css need to include for other than default theme
 }
 
 @Directive()
