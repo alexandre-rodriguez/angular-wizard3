@@ -71,7 +71,7 @@ export class ExemploService {
       }
       else if (stepSpecificValidateMethod instanceof Function) {
         stepSpecificValidateMethod = stepSpecificValidateMethod.bind(step.componentRef?.instance);
-        let result = stepSpecificValidateMethod();
+        let result = stepSpecificValidateMethod(step);
 
         if (isObservable(result)) {
           return (result as Observable<boolean>);

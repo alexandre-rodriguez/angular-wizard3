@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ToastModule} from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {CheckboxModule} from 'primeng/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +38,8 @@ import { Step6Component } from './exemplo/steps/step6/step6.component';
     CdkStepperModule,
     ReactiveFormsModule,
     ToastModule,
-    InputSwitchModule
+    InputSwitchModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

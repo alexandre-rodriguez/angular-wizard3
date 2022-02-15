@@ -15,9 +15,9 @@
       </pucx-step>
 
       <pucx-step
-        [title]="'Passo 6 - error'"
+        [title]="'Passo 6'"
         [description]="'Descrição do passo 6'"
-        [state]="stepStates.error"
+        [state]="stepStates.normal"
       >
         <pucx-step6></pucx-step6>
       </pucx-step>
@@ -28,13 +28,13 @@
     </pucx-wizard>
   </div>
 
-  <div class="pt-2"><!--  -->
-    <h5>Exibir passo 5</h5>
-     <p-inputSwitch [(ngModel)]="checked" (onChange)="handleChange($event)"></p-inputSwitch>
+  <div class="pt-2 field-checkbox">
+    <p-inputSwitch id="campo" [(ngModel)]="checked" (onChange)="handleChange($event)"></p-inputSwitch>
+    <label for="campo1">Exibir passo oculto</label>
   </div>
 
-  <div class="pt-2"><!--  -->
-    <h5>Botões extras</h5>
-     <p-inputSwitch [(ngModel)]="botaoExtra" (onChange)="handleBotaoExtra($event)"></p-inputSwitch>
+  <div class="pt-2 field-checkbox">
+    <p-inputSwitch [(ngModel)]="botaoExtra" (onChange)="handleBotaoExtra($event)"></p-inputSwitch>
+    <label>Botões extras</label>
   </div>
 </div>

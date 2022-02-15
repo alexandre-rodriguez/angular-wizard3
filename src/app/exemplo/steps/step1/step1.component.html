@@ -1,1 +1,17 @@
-<span>Conteúdo do passo 1</span>
+
+<form class="row g-3 needs-validation" novalidate>
+  <div class="has-validation">
+    <label for="username1" class="form-label">Username <span class="text-danger">*</span></label>
+    <input
+      class="form-control"
+      id="username1"
+      type="text"
+      pInputText
+      [ngClass]="name.invalid ? 'is-invalid' : ''"
+      [formControl]="name"
+    />
+    <small class="invalid-feedback"
+      >Username é obrigatório.</small
+    >
+  </div>
+</form>

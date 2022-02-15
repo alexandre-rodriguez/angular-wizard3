@@ -39,8 +39,6 @@ export class ExemploComponent {
     this.stepDefinitions = exemploService.stepDefinitions;
 
     this.config.toolbarSettings!.toolbarExtraButtons = [];
-
-    // s
   }
 
   ngOnInit() {
@@ -72,7 +70,7 @@ export class ExemploComponent {
     this.messageService.add({
       severity: 'info',
       summary: 'Botão Extra ' + botao,
-      detail: 'Chamando um botão extra',
+      detail: 'Chamando o botão extra ' + botao,
     });
   }
 
